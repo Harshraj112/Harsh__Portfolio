@@ -315,7 +315,9 @@ canvas {
 }
 
 .project-btn2 {
-  /* Removed padding here padding: 0.9rem 2.2rem; */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(0, 0, 60, 0.25);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -327,7 +329,6 @@ canvas {
   align-self: center;
   text-align: center;
   margin-bottom: 2rem;
-  display: inline-block;
   box-shadow: 0 0 12px #00ffff66, 0 0 28px #00ffff33 inset;
   animation: btn-glow-pulse 2.5s ease-in-out infinite;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -345,14 +346,17 @@ canvas {
 }
 
 .project-btn1 {
-  display: block;
-  padding: 0.6rem 1.6rem; /* Smaller padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 1.8rem; /* Correct padding size for the active touch area */
   color: #ffffff;
   font-family: 'Space Mono', monospace;
-  font-size: 0.9rem; /* Slightly smaller font */
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-decoration: none;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
 }
