@@ -315,24 +315,18 @@ canvas {
 }
 
 .project-btn2 {
-  padding: 0.9rem 2.2rem;
+  /* Removed padding here padding: 0.9rem 2.2rem; */
   background: rgba(0, 0, 60, 0.25);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  color: #ffffff;
   border: 2px solid #00ffff;
   border-radius: 50px;
-  font-family: 'Space Mono', monospace;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   align-self: center;
   text-align: center;
   margin-bottom: 2rem;
-  text-decoration: none;
   display: inline-block;
   box-shadow: 0 0 12px #00ffff66, 0 0 28px #00ffff33 inset;
   animation: btn-glow-pulse 2.5s ease-in-out infinite;
@@ -351,6 +345,14 @@ canvas {
 }
 
 .project-btn1 {
+  display: block;
+  padding: 0.6rem 1.6rem; /* Smaller padding */
   color: #ffffff;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem; /* Slightly smaller font */
+  text-transform: uppercase;
+  letter-spacing: 2px;
   text-decoration: none;
+  width: 100%;
+  height: 100%;
 }
