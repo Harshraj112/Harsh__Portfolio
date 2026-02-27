@@ -159,3 +159,28 @@
     }
 
 }
+
+/* ── Hide spaceship cursor on mobile/tablet (touch devices) ── */
+@media (max-width: 48em) {
+    #cursor-canvas {
+        display: none !important;
+    }
+
+    *,
+    *:hover,
+    a, a:hover,
+    button, button:hover,
+    input, textarea, select, label,
+    [role="button"] {
+        cursor: auto !important;
+    }
+
+    body {
+        cursor: auto !important;
+    }
+}
+
+/* Push first section content below the fixed "Go Back" button */
+.section.height1 {
+    padding-top: 6rem !important;
+}

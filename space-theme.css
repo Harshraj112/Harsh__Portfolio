@@ -683,6 +683,13 @@ footer {
   }
 }
 
+@media (max-width: 48em) {
+  .education-card-main,
+  .edu-three-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* Override the old white edu-card and apply space glass design */
 .about-education .edu-card {
   background: rgba(6, 6, 22, 0.72) !important;
