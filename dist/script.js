@@ -350,4 +350,15 @@ function setupAnimation(model)
 	tl.to(scene.light.position, {duration: sectionDuration, x: 0, y: 0, z: 0}, delay)
 }
 
-loadModel();
+// Only load the 3D spaceship model on desktop (> 768px)
+if (window.innerWidth > 768) {
+	loadModel();
+} else {
+	// On mobile, just hide the loading text and scroll CTA
+	document.addEventListener('DOMContentLoaded', function() {
+		var loading = document.querySelector('.loading');
+		if (loading) loading.style.display = 'none';
+		var scrollCta = document.querySelector('.scroll-cta');
+		if (scrollCta) scrollCta.style.opacity = '1';
+	});
+}
