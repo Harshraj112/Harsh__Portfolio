@@ -15,6 +15,12 @@ html {
   overflow-x: hidden;
 }
 
+/* Offset anchor scroll targets for fixed navbar */
+section[id],
+div[id] {
+  scroll-margin-top: 8rem;
+}
+
 body {
   /* overflow: hidden; This restrict scrolling */
   font-family: sans-serif;

@@ -105,8 +105,8 @@
     }
 }
 
-/* ── Below 960px ─────────────────────────────────────── */
-@media (max-width: 60em) {
+/* ── Below 1232px — show hamburger ───────────────────── */
+@media (max-width: 77em) {
     html {
         font-size: 62.50%;
     }
@@ -236,8 +236,8 @@
     }
 }
 
-/* ── Desktop nav underline (above 960px) ─────────────── */
-@media (min-width: 60em) {
+/* ── Desktop nav underline (above 1232px) ────────────── */
+@media (min-width: 77em) {
     .main-nav-link {
         position: relative;
         transition: color 0.3s ease;

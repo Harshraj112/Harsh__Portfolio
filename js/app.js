@@ -59,69 +59,46 @@ document.addEventListener('DOMContentLoaded', usrScroll);
 // obs.observe(sectionHeroEl);
 
 /* ═══════════════════════════════════════════════════════
-   HAMBURGER MENU — Toggle, close-on-link, close-on-outside
+   HAMBURGER MENU
+   CSS scroll-behavior:smooth + scroll-margin-top handles
+   all scrolling — JS only manages the mobile menu.
    ═══════════════════════════════════════════════════════ */
 (function () {
-  const btnNav  = document.querySelector('.btn-mobile-nav');
-  const header  = document.querySelector('.header');
-  const mainNav = document.querySelector('.main-nav');
-  if (!btnNav || !header) return;
+  var btnNav  = document.querySelector('.btn-mobile-nav');
+  var header  = document.querySelector('.header');
+  var mainNav = document.querySelector('.main-nav');
 
-  // Toggle menu open / closed
-  btnNav.addEventListener('click', function (e) {
-    e.stopPropagation();
-    header.classList.toggle('nav-open');
-  });
+  /* ── Hamburger toggle ── */
+  if (btnNav && header) {
+    btnNav.addEventListener('click', function (e) {
+      e.stopPropagation();
+      header.classList.toggle('nav-open');
+    });
+  }
 
-  // Close menu when any nav link is clicked
-  const navLinks = header.querySelectorAll('.main-nav-link');
+  /* ── Close mobile menu when any nav link is clicked ── */
+  var navLinks = document.querySelectorAll('.main-nav-link');
   navLinks.forEach(function (link) {
     link.addEventListener('click', function () {
-      header.classList.remove('nav-open');
+      if (header) header.classList.remove('nav-open');
     });
   });
 
-  // Close menu when tapping outside the nav area
+  /* ── Close on outside tap ── */
   document.addEventListener('click', function (e) {
-    if (!header.classList.contains('nav-open')) return;
-    // If the tap was inside the nav or on the hamburger, ignore
+    if (!header || !header.classList.contains('nav-open')) return;
     if (mainNav && mainNav.contains(e.target)) return;
-    if (btnNav.contains(e.target)) return;
+    if (btnNav && btnNav.contains(e.target)) return;
     header.classList.remove('nav-open');
   });
 
-  // Close on Escape key
+  /* ── Close on Escape ── */
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && header.classList.contains('nav-open')) {
+    if (e.key === 'Escape' && header && header.classList.contains('nav-open')) {
       header.classList.remove('nav-open');
     }
   });
 })();
-
-/* ═══════════════════════════════════════════════════════
-   SMOOTH SCROLLING — Internal anchor links
-   ═══════════════════════════════════════════════════════ */
-document.addEventListener('DOMContentLoaded', function () {
-  const allLinks = document.querySelectorAll('a[href^="#"]');
-
-  allLinks.forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      const href = link.getAttribute('href');
-      if (!href || href.length < 2) return; // skip bare "#"
-
-      const target = document.querySelector(href);
-      if (!target) return;
-
-      e.preventDefault();
-
-      // Account for fixed header height
-      const headerH = document.querySelector('.header')?.offsetHeight || 0;
-      const top = target.getBoundingClientRect().top + window.scrollY - headerH;
-
-      window.scrollTo({ top, behavior: 'smooth' });
-    });
-  });
-});
 
 
 
