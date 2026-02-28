@@ -4,7 +4,7 @@
 
 A space-themed personal portfolio website showcasing my projects, skills, education, achievements, and more — built with pure HTML, CSS, and JavaScript.
 
-🔗 **Live Site:** [harshraj-portfolio.netlify.app](https://harshraj-portfolio.netlify.app) _(update with your actual URL)_
+🔗 **Live Site:** [harshraj-portfolio.netlify.app](https://harsh-portfolio112.netlify.app/) 
 
 ---
 
