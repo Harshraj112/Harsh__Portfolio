@@ -470,6 +470,252 @@ h3,
   line-height: 1.7;
 }
 
+/* ── 10b. WORK EXPERIENCE SECTION ─────────────────── */
+.work-experience-section {
+  position: relative;
+  z-index: 1;
+  padding: 10rem 0;
+}
+
+.work-experience-section .container {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.work-exp-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* ── Card: holographic mission-briefing style ─── */
+.work-exp-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(10, 10, 40, 0.85) 0%, rgba(20, 5, 45, 0.75) 50%, rgba(5, 15, 35, 0.85) 100%);
+  border: 1px solid transparent;
+  border-image: linear-gradient(135deg, var(--neon-cyan), var(--cosmic-purple), var(--rocket-orange)) 1;
+  padding: 3.2rem 3.6rem;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  clip-path: polygon(0 0, calc(100% - 2.4rem) 0, 100% 2.4rem, 100% 100%, 2.4rem 100%, 0 calc(100% - 2.4rem));
+}
+
+/* Animated scan-line overlay */
+.work-exp-card::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 245, 255, 0.02) 3px,
+    rgba(0, 245, 255, 0.02) 6px
+  );
+  animation: scan-move 8s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes scan-move {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* Corner accents */
+.work-exp-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: linear-gradient(225deg, var(--cosmic-purple) 50%, transparent 50%);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.work-exp-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:
+    0 0 40px rgba(123, 47, 255, 0.25),
+    0 0 80px rgba(0, 245, 255, 0.1),
+    inset 0 0 30px rgba(0, 245, 255, 0.04);
+}
+
+/* ── Header row ─── */
+.work-exp-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.8rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.work-exp-icon-wrap {
+  width: 5.4rem;
+  height: 5.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  border: 2px solid var(--cosmic-purple);
+  position: relative;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: rgba(123, 47, 255, 0.12);
+}
+
+.work-exp-icon-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: rgba(0, 245, 255, 0.06);
+}
+
+.work-exp-icon {
+  font-size: 2.2rem;
+  color: var(--neon-cyan);
+  filter: drop-shadow(0 0 6px var(--neon-cyan));
+  z-index: 1;
+}
+
+.work-exp-meta {
+  flex: 1;
+  min-width: 200px;
+}
+
+.work-exp-title {
+  font-family: 'Orbitron', monospace !important;
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+  text-shadow: 0 0 12px rgba(0, 245, 255, 0.3);
+  letter-spacing: 0.03em;
+}
+
+.work-exp-company {
+  font-size: 1.5rem;
+  color: var(--rocket-orange);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(255, 107, 53, 0.3);
+}
+
+.work-exp-date-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.work-exp-date-badge > span:first-child {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.1rem;
+  color: var(--deep-space);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--cosmic-purple));
+  padding: 0.35rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.work-exp-location {
+  font-size: 1rem;
+  color: rgba(232, 244, 255, 0.5);
+  font-family: 'Orbitron', monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ── Detail bullets ─── */
+.work-exp-details {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  position: relative;
+  z-index: 1;
+  border-left: 2px solid rgba(123, 47, 255, 0.3);
+  padding-left: 2rem;
+  margin-left: 0.4rem;
+}
+
+.work-exp-details li {
+  position: relative;
+  font-size: 1.45rem;
+  color: rgba(232, 244, 255, 0.78);
+  line-height: 1.85;
+  padding-left: 0;
+  margin-bottom: 0.8rem;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.work-exp-details li::before {
+  content: '';
+  position: absolute;
+  left: -2.55rem;
+  top: 0.85rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cosmic-purple);
+  box-shadow: 0 0 8px var(--cosmic-purple), 0 0 16px rgba(123, 47, 255, 0.4);
+}
+
+/* ── Tech tags ─── */
+.work-exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  position: relative;
+  z-index: 1;
+}
+
+.work-exp-tag {
+  display: inline-block;
+  padding: 0.35rem 1.3rem;
+  font-size: 1.15rem;
+  border-radius: 4px;
+  background: rgba(123, 47, 255, 0.12);
+  color: var(--starlight);
+  border: 1px solid rgba(123, 47, 255, 0.3);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.04em;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.work-exp-tag:hover {
+  background: rgba(123, 47, 255, 0.28);
+  border-color: var(--cosmic-purple);
+  box-shadow: 0 0 12px rgba(123, 47, 255, 0.35);
+}
+
+@media (max-width: 48em) {
+  .work-exp-header {
+    flex-direction: column;
+  }
+  .work-exp-date-badge {
+    align-items: flex-start;
+  }
+  .work-exp-card {
+    padding: 2.2rem 2rem;
+    clip-path: polygon(0 0, calc(100% - 1.6rem) 0, 100% 1.6rem, 100% 100%, 1.6rem 100%, 0 calc(100% - 1.6rem));
+  }
+}
+
 /* ── 11. HERO SCROLL ARROW PULSE ─────────────────── */
 @keyframes bounce-glow {
   0%,
