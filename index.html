@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Harsh Raj — Space-Themed Portfolio | CSE Student, Web Developer, Creator">
+    <meta name="keywords" content="Harsh Raj, portfolio, web development, CSE, IIIT Kalyani">
+    <meta name="author" content="Harsh Raj">
+
+    <!-- Space Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="img1/Favicon.jpg">
+    <link rel="stylesheet" href="space-theme.css">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="query.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <title>Harsh Raj | Portfolio &mdash; Orbiting Creativity, Anchored in Code</title>
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════════════
+         FIXED SPACE BACKGROUND LAYERS
+    ═══════════════════════════════════════════════ -->
+    <canvas id="space-canvas" aria-hidden="true"></canvas>
+
+    <!-- Nebula blobs -->
+    <div class="nebula-blob" aria-hidden="true"></div>
+    <div class="nebula-blob" aria-hidden="true"></div>
+    <div class="nebula-blob" aria-hidden="true"></div>
+    <div class="nebula-blob" aria-hidden="true"></div>
+
+    <!-- Custom cursor canvas (topmost layer) -->
+    <canvas id="cursor-canvas" aria-hidden="true"></canvas>
+
+    <!-- ═══════════════════════════════════════════════
+         NAVIGATION
+    ═══════════════════════════════════════════════ -->
+    <header class="header sticky" id="main-header">
+        <a href="#home" class="class-logo">
+            <p>Harsh<span class="class-raj">Raj</span></p>
+        </a>
+        <nav class="main-nav">
+            <ul class="main-nav-list">
+                <li><a class="main-nav-link" href="#home">Home</a></li>
+                <li><a class="main-nav-link" href="#about-me">About</a></li>
+                <li><a class="main-nav-link" href="#skills-section">Arsenal</a></li>
+                <li><a class="main-nav-link" href="#projects">Missions</a></li>
+                <li><a class="main-nav-link" href="#experience-section">Achievements</a></li>
+                <li><a class="main-nav-link" href="#contact-form">Contact</a></li>
+                <li><a class="main-nav-link nav-cta" href="https://drive.google.com/file/d/1DNUYnarFcLc8kl4qUSb5rQiTdwgEU60L/view?usp=sharing" target="_blank">Resume</a></li>
+            </ul>
+        </nav>
+
+        <button class="btn-mobile-nav">
+            <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+            <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+        </button>
+    </header>
+
+    <div id="content">
+    <main>
+
+        <!-- ═══════════════════════════════════════
+             HERO — Launchpad
+        ═══════════════════════════════════════ -->
+        <section class="hero" id="home">
+            <video autoplay muted loop class="video-bg">
+                <source src="video-bg/sample-2.mp4" type="video/mp4">
+            </video>
+            <div class="hero-content reveal">
+                <div class="about-me">
+                    <p class="zeroth-heading">Welcome to my cosmic portfolio</p>
+                    <h1 class="primary-heading heading">Launching into Harsh's</h1>
+                    <h1 class="secondary-heading heading">Universe</h1>
+                    <h1 class="tertiary-heading heading">of Infinite Ideas</h1>
+                    <p class="discription-heading">Designing galaxies of innovation with modern code and<br> interstellar creativity. Welcome aboard my universe of<br> <strong class="strong"> digital marvels.</strong></p>
+                </div>
+                
+                <div class="contact-logo">
+                    <a href="https://github.com/Harshraj112" target="_blank"><ion-icon name="logo-github"  class="hero-logo"></ion-icon></a>
+                    <a href="https://www.linkedin.com/in/harsh-raj-30077b326" target="_blank"><ion-icon name="logo-linkedin" class="hero-logo"></ion-icon></a>
+                    <a href="https://x.com/HarshRa08880363" target="_blank"><ion-icon name="logo-twitter" class="hero-logo"></ion-icon></a>
+                </div>
+
+
+            </div>
+
+            <div class="custom-shape-divider-bottom-1749701377">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+                </svg>
+                <defs>
+                <linearGradient id="myGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0f0f0f" />
+                <stop offset="50%" stop-color="#1c1c1c" />
+                <stop offset="100%" stop-color="#000000" />
+                </linearGradient>
+            </defs>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             ABOUT — Origin Story
+        ═══════════════════════════════════════ -->
+        <section class="about-us" >
+            <div class="container main-header-about" id="about-me">
+                <div class="header-about reveal">
+                    <div class="about-me-logo">
+                        <p class="about-me-text">Origin Story</p>
+                    </div>
+                    <div class="my-heading"><h2>Cosmic Explorer</h2></div>
+                    <div class="underline"></div>
+                    <div class="info-sec">
+                        <div class="grid grid--2-cols grid-1--cols-3">
+                            <div class="astronaut-img">
+                                <img src="img1/Side-pic/Side-pic1.png" alt="">
+                            </div>
+                            <div class="myself for-padding">
+                                <div class="heading-1">
+                                    Hello, Space Traveler!
+                                </div>
+                                <div class="discription-myself">
+                                    <p class="short-discription">Hey! I'm Harsh Raj 🚀 — your unsolicited space tour guide (seatbelts are for people who fear greatness, curiosity is mandatory, therapy is optional).</p>
+                                    <p class="short-discription" style="margin-top: 1rem;">I'm a CSE student at <a href="https://iiitkalyani.ac.in/index.php/" target="_blank" class="iiit">IIIT Kalyani</a>, which basically means I've signed a legally binding contract with my laptop to have a complicated relationship for the next four years. I love exploring everything from spaceships to source code — mostly because real-world problems are terrifying and at least bugs have stack traces.</p>
+                                    <p class="short-discription" style="margin-top: 1rem;">My interests orbit around Web Development, DSA, and AI/ML — basically.</p>
+                                    <p class="short-discription" style="margin-top: 1rem;">I'm also a proud <a href="https://www.scholarships.reliancefoundation.org/UG_Scholarship.aspx" target="_blank" class="reliance">Reliance Foundation Merit Scholar</a>, which is a fancy way of saying I've convinced some very smart people that I have my life together. The illusion is maintained through caffeine and aggressive use of Google and cocaine sometime(just kidding).</p>
+                                    <p class="short-discription" style="margin-top: 1rem;">I thrive on teamwork, leadership, and solving problems — whether that's debugging at 2 AM while questioning every life decision I've ever made, or calmly explaining to my laptop why it should please, for the love of all things holy, just compile. It usually doesn't listen. We're working on our communication.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             EDUCATION — Learning Galaxy
+        ═══════════════════════════════════════ -->
+        <section class="about-education" id="education">
+            <div class="container">
+                <div class="header-education reveal">
+                    <div class="about-education-text">
+                        <p>My Education</p>
+                    </div>
+                    <div class="my-heading"><h2>Journey Through the Learning Galaxy</h2></div>
+                    <div class="theme-line">
+                        <p>
+                            Let's go on brighter side with bright background
+                        </p>
+                    </div>
+                    <div class="underline"></div>
+                </div>
+
+                <div class="education-card-main edu-three-grid reveal">
+
+                    <!-- Card 1: Class X -->
+                    <div class="education-cards">
+                        <div class="edu-card edu-card-x">
+                            <div class="edu-badge">CLASS X · CBSE · 2021</div>
+                            <h3 class="institute-name">Kendriya Vidyalaya Danapur Cantt</h3>
+                            <div class="edu-stat-row">
+                                <div class="edu-stat">
+                                    <span class="edu-stat-num">95.33%</span>
+                                    <span class="edu-stat-label">Overall Score</span>
+                                </div>
+                                <div class="edu-stat">
+                                    <span class="edu-stat-num">Top 5</span>
+                                    <span class="edu-stat-label">School Rank</span>
+                                </div>
+                            </div>
+                            <p class="skills-learned kv">Built strong foundations in Mathematics, Science &amp; Computer Science. Developed discipline, time-management, and a hunger for academic excellence.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Class XII -->
+                    <div class="education-cards">
+                        <div class="edu-card edu-card-xii">
+                            <div class="edu-badge">CLASS XII · CBSE · 2023</div>
+                            <h3 class="institute-name">Kendriya Vidyalaya Danapur Cantt</h3>
+                            <div class="edu-stat-row">
+                                <div class="edu-stat">
+                                    <span class="edu-stat-num">91.33%</span>
+                                    <span class="edu-stat-label">Overall Score</span>
+                                </div>
+                                <div class="edu-stat">
+                                    <span class="edu-stat-num">#1</span>
+                                    <span class="edu-stat-label">School Topper</span>
+                                </div>
+                            </div>
+                            <p class="skills-learned">Emerged as School Topper. Led students as a responsible senior, represented school at district-level events, and inspired peers through academic dedication.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: IIIT Kalyani -->
+                    <div class="education-cards card-full">
+                        <div class="edu-card edu-card-iiit">
+                            <div class="edu-badge">B.TECH CSE · 2024 – 2028</div>
+                            <h3 class="institute-name">Indian Institute of Information Technology, Kalyani</h3>
+                            <div class="edu-stat-row">
+                                <div class="edu-stat">
+                                    <span class="edu-stat-num">7.9</span>
+                                    <span class="edu-stat-label">CGPA (Current)</span>
+                                </div>
+                                <div class="edu-stat">
+                                    <span class="edu-stat-num">2028</span>
+                                    <span class="edu-stat-label">Expected Grad</span>
+                                </div>
+                                <div class="edu-stat">
+                                    <span class="edu-stat-num">CSE</span>
+                                    <span class="edu-stat-label">Specialisation</span>
+                                </div>
+                            </div>
+                            <p class="skills-learned">Went from debugging HTML at semester one to asking neural networks why they won't cooperate in sem four. The suffering evolved, but so did I. ☕</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             SKILLS — Arsenal (HUD style)
+        ═══════════════════════════════════════ -->
+        <section class="skills-section" id="skills-section">
+            <div class="container">
+                <div class="reveal" style="text-align:center;">
+                    <span class="section-label">Equipment Log</span>
+                    <h2 class="section-title">Arsenal</h2>
+                    <p class="section-subtitle">Technologies mastered across the galaxy of development</p>
+                    <div class="hud-underline"></div>
+                </div>
+
+                <div class="skills-parallel reveal">
+                <!-- AI/ML Category -->
+                <div class="skills-category-wrapper">
+                    <!-- <h3 class="skills-category-title">Artificial Intelligence &amp; Machine Learning</h3> -->
+                    <div class="skills-grid reveal">
+                        <!-- ML/AI Skill items -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Machine Learning Fundamentals</span>
+                            <span class="skill-pct">75%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Deep Learning (ANN/CNN Basics)</span>
+                            <span class="skill-pct">65%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:65%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Python for ML (NumPy, Pandas, Matplotlib)</span>
+                            <span class="skill-pct">80%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>TensorFlow / Keras</span>
+                            <span class="skill-pct">70%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:70%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Data Preprocessing &amp; Feature Engineering</span>
+                            <span class="skill-pct">75%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Model Evaluation &amp; Optimization</span>
+                            <span class="skill-pct">68%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:68%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>NLP Basics</span>
+                            <span class="skill-pct">60%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:60%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Computer Vision Basics</span>
+                            <span class="skill-pct">58%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:58%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Statistics &amp; Probability for ML</span>
+                            <span class="skill-pct">70%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:70%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>AI Model Deployment (Basics)</span>
+                            <span class="skill-pct">62%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:62%"></div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+
+                <!-- Web Dev Category -->
+                <div class="skills-category-wrapper">
+                    <!-- <h3 class="skills-category-title">Web Development &amp; Core</h3> -->
+                    <div class="skills-grid reveal">
+                        <!-- Web Dev Skill items -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>HTML &amp; CSS</span>
+                            <span class="skill-pct">95%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>JavaScript</span>
+                            <span class="skill-pct">80%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Node.js &amp; Express</span>
+                            <span class="skill-pct">72%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:72%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>React</span>
+                            <span class="skill-pct">65%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:65%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>MongoDB &amp; Mongoose</span>
+                            <span class="skill-pct">70%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:70%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Java &amp; C (DSA)</span>
+                            <span class="skill-pct">78%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:78%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Angular</span>
+                            <span class="skill-pct">55%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:55%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Git &amp; Version Control</span>
+                            <span class="skill-pct">85%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Bootstrap</span>
+                            <span class="skill-pct">75%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>LaTeX</span>
+                            <span class="skill-pct">60%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="--fill-pct:60%"></div>
+                        </div>
+                    </div>
+                </div> <!-- Close web dev skills-grid -->
+            </div> <!-- Close web dev skills-category-wrapper -->
+            </div> <!-- Close skills-parallel -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             PROJECTS — Stellar Missions
+             ⚠️ NOT MODIFIED — original preserved
+        ═══════════════════════════════════════ -->
+        <section class="section-project">
+            <div class="contact-me" id="projects">
+                <div class="container" >
+                    <div class="header-education" >
+                        <div class="about-education-text" >
+                            <p>My Work</p>
+                        </div>
+                        <div class="my-heading"><h2>Stellar Projects</h2></div>
+                        <div class="theme-line">
+                            <p>
+                                Explore my universe of web projects, from interactive experiences to functional applications.
+                            </p>
+                        </div>
+                        <div class="underline"></div>
+                    </div>
+
+
+                    <div class="grid-project grid-1--cols-1 reveal">
+
+                        <div class="card-container1">
+                            <div class="card1 card11">
+                            <div class="card-banner" style="background: linear-gradient(to right, #4facfe, #00f2fe);"></div>
+                            <div class="card-content">
+                                <h2 class="card-title">SmartChurn Predictor</h2>
+                                <p class="card-desc">Deep learning web app analyzing customer data to predict churn using an ANN model.</p>
+                                <div class="tags">
+                                    <span class="tag">TensorFlow</span>
+                                    <span class="tag">Keras</span>
+                                    <span class="tag">Streamlit</span>
+                                    <span class="tag">Python</span>
+                                </div>
+                                <div class="buttons">
+                                <a href="https://github.com/Harshraj112/SmartChurn-Predictor" target="_blank" class="code-btn">
+                                    <span><ion-icon name="logo-github"></ion-icon></span> Code
+                                </a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="card-container1">
+                            <div class="card1 card11">
+                            <div class="card-banner" style="background: linear-gradient(to right, #11998e, #38ef7d);"></div>
+                            <div class="card-content">
+                                <h2 class="card-title">WiseShield AI</h2>
+                                <p class="card-desc">AI-powered phishing detection platform demonstrating real-time malicious URL analysis.</p>
+                                <div class="tags">
+                                    <span class="tag">Next.js</span>
+                                    <span class="tag">React</span>
+                                    <span class="tag">Tailwind</span>
+                                    <span class="tag">AI/ML</span>
+                                </div>
+                                <div class="buttons">
+                                <a href="https://github.com/Harshraj112/Wise_shield" target="_blank" class="code-btn">
+                                    <span><ion-icon name="logo-github"></ion-icon></span> Code
+                                </a>
+                                <a href="https://wise-shield.vercel.app/" target="_blank" class="live-btn">Live Demo</a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="card-container1">
+                            <div class="card1 card11">
+                            <div class="card-banner" style="background: linear-gradient(to right, #ff9966, #ff5e62);"></div>
+                            <div class="card-content">
+                                <h2 class="card-title">Image Caption Generator</h2>
+                                <p class="card-desc">Deep learning system generating textual descriptions from images using CNN &amp; LSTM.</p>
+                                <div class="tags">
+                                    <span class="tag">TensorFlow</span>
+                                    <span class="tag">Keras</span>
+                                    <span class="tag">CNN</span>
+                                    <span class="tag">LSTM</span>
+                                </div>
+                                <div class="buttons">
+                                <a href="https://github.com/Harshraj112/VisionCaption" target="_blank" class="code-btn">
+                                    <span><ion-icon name="logo-github"></ion-icon></span> Code
+                                </a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="card-container1">
+                            <div class="card1 card11">
+                            <div class="card-banner" style="background: linear-gradient(to right, #f6d365, #fda085);"></div>
+                            <div class="card-content">
+                                <h2 class="card-title">Omnifood Delivery</h2>
+                                <p class="card-desc">A platform that helps you to order tasty food every single day.</p>
+                                <div class="tags">
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">HTML</span>
+                                    <span class="tag">CSS</span>
+                                    <span class="tag">Node.js</span>
+                                </div>
+                                <div class="buttons">
+                                <a href="https://github.com/Harshraj112/Omnifood_delivery_app/tree/main" target="_blank" class="code-btn">
+                                    <span><ion-icon name="logo-github"></ion-icon></span> Code
+                                </a>
+                                <a href="https://omnifood-delivery-web-app.netlify.app/" target="_blank" class="live-btn">Live Demo</a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-btn2">
+                        <a href="project.html" class="project-btn1">See More &rarr;</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             ACHIEVEMENTS — Certificates & Honours
+        ═══════════════════════════════════════ -->
+        <section class="experience-section" id="experience-section">
+            <div class="container">
+                <div class="reveal" style="text-align:center;">
+                    <span class="section-label">Honours &amp; Roles</span>
+                    <h2 class="section-title">Achievements</h2>
+                    <p class="section-subtitle">Certificates, scholarships &amp; positions of responsibility</p>
+                    <div class="hud-underline"></div>
+                </div>
+
+                <div class="timeline reveal">
+
+                    <!-- Scholarship -->
+                    <div class="timeline-item">
+                        <div class="tl-date">2024 · Scholarship</div>
+                        <div class="tl-card tl-highlight">
+                            <div class="tl-icon-row">
+                                <ion-icon name="ribbon-outline" class="tl-icon"></ion-icon>
+                                <div class="tl-title">Reliance Foundation UG Scholarship</div>
+                            </div>
+                            <div class="tl-org">Reliance Foundation · Merit-Based National Award</div>
+                            <div class="tl-desc">One of the most prestigious undergraduate scholarships in India. Awarded based on academic excellence, leadership potential, and demonstrated commitment to making an impact. Selected from thousands of applicants across the country.</div>
+                            <a href="https://www.scholarships.reliancefoundation.org/UG_Scholarship.aspx" target="_blank" class="tl-link">View Scholarship →</a>
+                        </div>
+                    </div>
+
+                    <!-- Role of Responsibility -->
+                    <div class="timeline-item">
+                        <div class="tl-date">Nov 2025 – Present · Role of Responsibility</div>
+                        <div class="tl-card">
+                            <div class="tl-icon-row">
+                                <ion-icon name="people-outline" class="tl-icon"></ion-icon>
+                                <div class="tl-title">Web Development Lead</div>
+                            </div>
+                            <div class="tl-org">GDG IIIT Kalyani</div>
+                            <div class="tl-desc">
+                                <ul style="list-style-type: disc; padding-left: 1.5rem; color: rgba(232, 244, 255, 0.7); font-size: 1.4rem;">
+                                    <li style="margin-bottom: 0.5rem;"><strong>GDG Web Lead:</strong> Managed the <strong>Winter of Code 5</strong> website for seamless contributor registration and participation.</li>
+                                    <li style="margin-bottom: 0.5rem;"><strong>InnovateX Lead:</strong> Orchestrated the full lifecycle of the InnovateX Hackathon for a large-scale participant base.</li>
+                                    <li><strong>Mentorship:</strong> Guided junior developers in Git/GitHub and web development to boost team productivity.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 1 -->
+                    <div class="timeline-item">
+                        <div class="tl-date">Jan 2026 · Certificate</div>
+                        <div class="tl-card">
+                            <div class="tl-icon-row">
+                                <ion-icon name="ribbon-outline" class="tl-icon"></ion-icon>
+                                <div class="tl-title">Complete Data Science, Machine Learning, DL, NLP Bootcamp</div>
+                            </div>
+                            <div class="tl-org">Udemy</div>
+                            <div class="tl-desc">Mastered Supervised/Unsupervised Learning, Feature Engineering, Probability, Statistics, LLMs, NLP, and Deep Learning using Python, Pandas, NumPy, Matplotlib, Seaborn, Streamlit, Flask, and SQLite.</div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 2 -->
+                    <div class="timeline-item">
+                        <div class="tl-date">Feb 2025 · Certificate</div>
+                        <div class="tl-card">
+                            <div class="tl-icon-row">
+                                <ion-icon name="code-working-outline" class="tl-icon"></ion-icon>
+                                <div class="tl-title">Alpha (DSA with Java)</div>
+                            </div>
+                            <div class="tl-org">Apna College (Credential ID 67bfef97ad15b3161a06e126)</div>
+                            <div class="tl-desc">Comprehensive training in Data Structures, Algorithms, and Object-Oriented Programming (OOP) using Java.</div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 3 -->
+                    <div class="timeline-item">
+                        <div class="tl-date">Dec 2024 · Certificate</div>
+                        <div class="tl-card">
+                            <div class="tl-icon-row">
+                                <ion-icon name="globe-outline" class="tl-icon"></ion-icon>
+                                <div class="tl-title">Introduction to Front End Development</div>
+                            </div>
+                            <div class="tl-org">Simplilearn (Credential ID 7723405)</div>
+                            <div class="tl-desc">Acquired foundational skills in building responsive web interfaces using HTML, Cascading Style Sheets (CSS), and JavaScript.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             CONTACT — Initiate Contact
+        ═══════════════════════════════════════ -->
+        <section class="contact-detailss"></section>
+            <div class="contact-me">
+                <div class="container" id="contact-form">
+                    <div class="header-education second-last-div reveal">
+                        <div class="about-education-text">
+                            <p>Get In Touch</p>
+                        </div>
+                        <div class="my-heading"><h2>Connect Across the Universe</h2></div>
+                        <div class="theme-line">
+                            <p>
+                                Ready to collaborate? Send a signal my way and let's create something stellar together.
+                            </p>
+                        </div>
+                        <div class="underline"></div>
+                    </div>
+
+                    <div class="grid grid--2-cols for-margin grid-1--cols-2">
+                        <div class="contact-info-text reveal">
+                            <h1 class="contact-heading">Contact Information</h1>
+                            <div class="contact-discription">
+                                Fill out the form or reach out directly through the following channels:
+                            </div>
+                            <div class="contact-details">
+                                <div class="email-detail">
+                                    <div class="icon">
+                                        <ion-icon name="mail-outline"></ion-icon>
+                                    </div>
+                                    <div class="details">
+                                        <p class="sub-head">Email</p>
+                                        <p class="sub-info animate__animated animate__headShake animate__infinite">harshraj250106@gmail.com</p>
+                                    </div>
+                                </div>
+
+                                <div class="phone-detail">
+                                    <div class="icon">
+                                        <ion-icon name="call-outline"></ion-icon>
+                                    </div>
+                                    <div class="details">
+                                        <p class="sub-head">Phone</p>
+                                        <p class="sub-info animate__animated animate__headShake animate__infinite">+91 7903237319</p>
+                                    </div>
+                                </div>
+
+                                <div class="location-detail">
+                                    <div class="icon">
+                                        <ion-icon name="location-outline"></ion-icon>
+                                    </div>
+                                    <div class="details">
+                                        <p class="sub-head">Location</p>
+                                        <p class="sub-info animate__animated animate__headShake animate__infinite">Kalyani, India</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-form reveal" data-aos="fade-up">
+                            <form name="send-info" netlify>
+                                <div class="form-group-row">
+                                    <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" placeholder="Your name" name="full-name" required />
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" placeholder="your@email.com" name="email-id" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" id="subject" placeholder="How can I help you?" name="send-msg" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="message" >Message</label>
+                                    <textarea id="message" rows="5" placeholder="Your message here..." name="send-msg-details"></textarea>
+                                </div>
+                                <button type="submit" class="send-btn">
+                                    🚀 Send Signal
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════════ -->
+    <footer>
+
+        <div class="footer-divider"></div>
+
+        <div class="section-footer">
+            <div class="last-discription footer-item1">
+                <h1 class="footer-heading">Cosmic<span class="class-portfolio">Portfolio</span></h1>
+                <p class="footer-para">Crafting digital experiences that are out of this world. Exploring<br> the universe of web development one project at a time.</p>
+                <div class="last-logo">
+                    <a href="https://github.com/Harshraj112" target="_blank"><ion-icon name="logo-github"  class="footer-logo"></ion-icon></a>
+                    <a href="https://www.linkedin.com/in/harshraj112/" target="_blank"><ion-icon name="logo-linkedin" class="footer-logo"></ion-icon></a>
+                    <a href="https://x.com/HarshRa08880363" target="_blank"><ion-icon name="logo-twitter" class="footer-logo"></ion-icon></a>
+                </div>
+
+                <div class="copywrite">
+                    <p>&copy; 2025 CosmicPortfolio. All rights reserved.</p>
+                </div>
+            </div>
+
+            <div class="quick-links footer-item2">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about-me">About</a>
+                <a href="#skills-section">Arsenal</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Missions</a>
+                <a href="#experience-section">Achievements</a>
+                <a href="#contact-form">Contact</a>
+                <a href="https://drive.google.com/file/d/1DNUYnarFcLc8kl4qUSb5rQiTdwgEU60L/view?usp=sharing">Resume</a>
+            </div>
+
+            <div class="last-contact-details footer-item3">
+                <h3>Contact</h3>
+                <p>Kalyani, India</p>
+                <p>harshraj250106@gmail.com</p>
+                <p>+91 7903237319</p>
+            </div>
+
+        </div>
+
+        <div class="footer-divider"></div>
+
+        
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════
+         SCRIPTS
+    ═══════════════════════════════════════════════ -->
+    <script src="js/router.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="js/app.js"></script>
+    <!-- Space Engine — starfield, cursor, explosions, scroll-reveal -->
+    <script src="js/space-engine.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000 });
+
+        // Animate HUD skill bars when they scroll into view
+        const skillFills = document.querySelectorAll('.skill-fill');
+        const skillObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    skillObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        skillFills.forEach(f => skillObs.observe(f));
+    </script>
+</body>
+</html>

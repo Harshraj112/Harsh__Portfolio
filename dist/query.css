@@ -1,0 +1,161 @@
+/* below 1260px */
+@media (max-width: 79em) {
+    html {
+        font-size: 62.5%;
+    }
+
+    .section h1 {
+        font-size: 5.4rem;
+    }
+
+    .section h2 {
+        font-size: 5.4rem;
+    }
+}
+
+/* below 1090px */
+@media (max-width: 69em) {
+    html {
+        font-size: 62.5%;
+    }
+
+    .section h1 {
+        font-size: 5.1rem;
+    }
+
+    .section h2 {
+        font-size: 5rem;
+    }
+}
+
+/* Below 1040px */
+@media (max-width: 65em) {
+    html {
+        font-size: 62.5%;
+    }
+
+    .section h1 {
+        font-size: 5rem;
+    }
+
+    .section p {
+        font-size: 1.5rem;
+    }
+    
+    .section .section-rgt {
+        line-height: 2rem;
+    }
+
+    .section h2 {
+        font-size: 5rem;
+    }
+}
+
+/* Below 760px */
+@media (max-width: 47.5em) {
+     html {
+        font-size: 62.5%;
+    }
+
+    .section h1 {
+        font-size: 4rem;
+    }
+
+    .section p {
+        font-size: 1.5rem;
+    }
+    
+    .section .section-rgt {
+        line-height: 2rem;
+    }
+
+    .section h2 {
+        font-size: 4rem;
+    }
+
+    .project-box {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        grid-template-rows: none;
+        height: 50%;
+        margin-top: 10rem;
+    }
+
+    .project-img {
+        height: 100%;
+    }
+
+    .project-content {
+        align-self: center;
+        /* height: 100%; */
+    }
+
+    .project-content p {
+        margin-bottom: 5rem;
+    }
+
+    .project-box.special-layout .project-content {
+        order: -1;
+    }
+}
+
+/* Below 608px */
+@media (max-width: 38em) {
+   html {
+        font-size: 62.5%;
+    }
+    
+    .section h1 {
+        font-size: 3.3rem;
+    }
+
+    .section p {
+        font-size: 1.3rem;
+    }
+    
+    .section .section-rgt {
+        line-height: 2rem;
+    }
+
+    .section h2 {
+        font-size: 3rem;
+    }
+}
+
+
+/* Max screen size 500px */
+@media (max-width: 32em) {
+    html {
+        font-size: 62.5%;
+    }
+
+    .project-box {
+        grid-template-columns: none;
+        grid-template-rows: 60% 40%;
+    }
+
+    .project-content p {
+        margin-bottom: 2rem;
+    }
+
+    .project-box.special-layout .project-img {
+        order: -1;
+    }
+
+    .section h1 {
+        font-size: 3rem;
+    }
+
+    .section p {
+        font-size: 1.1rem;
+    }
+    
+    .section .section-rgt {
+        line-height: 2rem;
+    }
+
+    .section h2 {
+        font-size: 2.7rem;
+    }
+
+}

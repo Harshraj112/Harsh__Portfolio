@@ -1,0 +1,1005 @@
+/* =====================================================
+   space-theme.css — Cinematic Space Portfolio Styles
+   ===================================================== */
+
+/* ── 1. FONTS ─────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap");
+
+/* ── 2. COLOR TOKENS ──────────────────────────────── */
+:root {
+  --deep-space: #000005;
+  --neon-cyan: #00f5ff;
+  --cosmic-purple: #7b2fff;
+  --rocket-orange: #ff6b35;
+  --starlight: #e8f4ff;
+  --glass-bg: rgba(8, 8, 24, 0.55);
+  --glass-border: rgba(0, 245, 255, 0.18);
+}
+
+/* ── 3. GLOBAL BASE ───────────────────────────────── */
+body {
+  cursor: none !important;
+  background-color: var(--deep-space) !important;
+  font-family: "Rajdhani", sans-serif !important;
+  overflow-x: hidden;
+  color: var(--starlight);
+}
+
+/* Kill cursor:pointer everywhere — spaceship cursor handles all states */
+*,
+*:hover,
+a,
+a:hover,
+button,
+button:hover,
+input,
+textarea,
+select,
+label,
+[role="button"] {
+  cursor: none !important;
+}
+
+/* All headings → Orbitron */
+h1,
+h2,
+h3,
+.class-logo,
+.footer-heading {
+  font-family: "Orbitron", monospace !important;
+}
+
+/* ── 4. FIXED CANVAS LAYERS ───────────────────────── */
+#space-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#cursor-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* ── 5. NEBULA BLOBS ──────────────────────────────── */
+.nebula-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  animation: nebula-drift 22s ease-in-out infinite alternate;
+}
+
+.nebula-blob:nth-child(1) {
+  width: 520px;
+  height: 420px;
+  background: radial-gradient(
+    circle,
+    rgba(123, 47, 255, 0.28) 0%,
+    transparent 70%
+  );
+  top: -10%;
+  left: -5%;
+  animation-delay: 0s;
+  animation-duration: 20s;
+}
+
+.nebula-blob:nth-child(2) {
+  width: 460px;
+  height: 380px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 245, 255, 0.2) 0%,
+    transparent 70%
+  );
+  top: 40%;
+  right: -8%;
+  animation-delay: -7s;
+  animation-duration: 26s;
+}
+
+.nebula-blob:nth-child(3) {
+  width: 400px;
+  height: 340px;
+  background: radial-gradient(
+    circle,
+    rgba(123, 47, 255, 0.18) 0%,
+    transparent 70%
+  );
+  bottom: -10%;
+  left: 30%;
+  animation-delay: -12s;
+  animation-duration: 30s;
+}
+
+.nebula-blob:nth-child(4) {
+  width: 300px;
+  height: 260px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 53, 0.12) 0%,
+    transparent 70%
+  );
+  top: 20%;
+  left: 50%;
+  animation-delay: -5s;
+  animation-duration: 18s;
+}
+
+@keyframes nebula-drift {
+  0% {
+    opacity: 0.6;
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    opacity: 0.8;
+    transform: translate(30px, 20px) scale(1.08);
+  }
+  66% {
+    opacity: 0.5;
+    transform: translate(-20px, 35px) scale(0.94);
+  }
+  100% {
+    opacity: 0.7;
+    transform: translate(10px, -15px) scale(1.04);
+  }
+}
+
+/* ── 6. SCROLL REVEAL ─────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(44px) scale(0.97);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-active {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* ── 7. SECTION OVERRIDES (glass look) ───────────── */
+.about-us,
+.about-education,
+.contact-me,
+.section-project {
+  background: transparent !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* Glassmorphism upgrade for edu cards */
+.edu-card {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  backdrop-filter: blur(14px) !important;
+  color: var(--starlight) !important;
+  box-shadow:
+    0 0 28px rgba(0, 245, 255, 0.08),
+    0 8px 32px rgba(0, 0, 0, 0.5) !important;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease !important;
+}
+
+.edu-card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow:
+    0 0 44px rgba(0, 245, 255, 0.22),
+    0 16px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+.edu-card h3 {
+  color: var(--neon-cyan) !important;
+}
+.edu-card ul li {
+  color: var(--starlight) !important;
+}
+.edu-card .period {
+  color: rgba(232, 244, 255, 0.7) !important;
+}
+.skills-learned {
+  color: rgba(232, 244, 255, 0.65) !important;
+}
+
+/* Project cards glass upgrade */
+.card1 {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  backdrop-filter: blur(14px) !important;
+  box-shadow:
+    0 0 22px rgba(123, 47, 255, 0.18),
+    0 8px 24px rgba(0, 0, 0, 0.5) !important;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease !important;
+}
+
+.card1:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow:
+    0 0 48px rgba(0, 245, 255, 0.28),
+    0 16px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Contact form glass */
+.contact-form {
+  background: var(--glass-bg) !important;
+  border: 1.5px solid rgba(0, 245, 255, 0.75) !important;
+  backdrop-filter: blur(18px) !important;
+  box-shadow: 0 0 18px rgba(0, 245, 255, 0.25), 0 0 40px rgba(0, 245, 255, 0.08) !important;
+
+  /* 3D tilt */
+  transform-style: preserve-3d;
+  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
+  will-change: transform;
+}
+
+/* Perspective wrapper — applied to the parent section */
+.contact-me {
+  perspective: 900px;
+}
+
+/* ── 8. HEADER GLASS ──────────────────────────────── */
+.sticky {
+  background: rgba(0, 0, 8, 0.75) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+  z-index: 1000 !important;
+}
+
+/* ── 9. HUD SKILLS SECTION ────────────────────────── */
+.skills-section {
+  position: relative;
+  z-index: 1;
+  padding: 10rem 0;
+}
+
+.skills-section .container {
+  max-width: 110rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.section-label {
+  display: inline-block;
+  padding: 0.4rem 1.6rem;
+  font-size: 1.2rem;
+  border-radius: 40px;
+  background: rgba(123, 47, 255, 0.2);
+  color: var(--cosmic-purple);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: "Orbitron", monospace;
+  margin-bottom: 1.4rem;
+}
+
+.section-title {
+  font-family: "Orbitron", monospace !important;
+  font-size: 3.6rem;
+  background: linear-gradient(to right, var(--starlight), var(--neon-cyan));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.6rem;
+  color: rgba(232, 244, 255, 0.55);
+  font-family: "Rajdhani", sans-serif;
+  margin-bottom: 5rem;
+}
+
+.hud-underline {
+  height: 2px;
+  width: 8rem;
+  background: linear-gradient(to right, var(--neon-cyan), var(--cosmic-purple));
+  margin: 1.2rem auto 4.5rem;
+  border-radius: 2px;
+  box-shadow: 0 0 12px var(--neon-cyan);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem 6rem;
+}
+
+@media (max-width: 60em) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-title {
+    font-size: 2.6rem;
+  }
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  font-family: "Orbitron", monospace;
+  color: var(--starlight);
+  letter-spacing: 0.05em;
+}
+
+.skill-pct {
+  color: var(--neon-cyan);
+  font-size: 1.2rem;
+}
+
+.skill-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 245, 255, 0.12);
+}
+
+.skill-fill {
+  height: 100%;
+  border-radius: 8px;
+  background: linear-gradient(to right, var(--neon-cyan), var(--cosmic-purple));
+  box-shadow: 0 0 10px var(--neon-cyan);
+  width: 0%;
+  transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skill-fill.animate {
+  width: var(--fill-pct);
+}
+
+/* ── 10. EXPERIENCE TIMELINE ──────────────────────── */
+.experience-section {
+  position: relative;
+  z-index: 1;
+  padding: 10rem 0;
+}
+
+.experience-section .container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 4rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--neon-cyan),
+    var(--cosmic-purple),
+    transparent
+  );
+  box-shadow: 0 0 14px var(--neon-cyan);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 4.5rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -3rem;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+  box-shadow:
+    0 0 16px var(--neon-cyan),
+    0 0 32px var(--neon-cyan);
+  border: 2px solid var(--deep-space);
+}
+
+.tl-date {
+  font-family: "Orbitron", monospace;
+  font-size: 1.1rem;
+  color: var(--cosmic-purple);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.tl-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+  border-radius: 12px;
+  padding: 2rem 2.4rem;
+  box-shadow: 0 0 24px rgba(0, 245, 255, 0.06);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.tl-card:hover {
+  box-shadow: 0 0 40px rgba(0, 245, 255, 0.2);
+  transform: translateX(6px);
+}
+
+.tl-title {
+  font-family: "Orbitron", monospace;
+  font-size: 1.6rem;
+  color: var(--neon-cyan);
+  margin-bottom: 0.4rem;
+}
+
+.tl-org {
+  font-size: 1.3rem;
+  color: var(--rocket-orange);
+  margin-bottom: 0.8rem;
+  font-family: "Rajdhani", sans-serif;
+}
+
+.tl-desc {
+  font-size: 1.4rem;
+  color: rgba(232, 244, 255, 0.7);
+  line-height: 1.7;
+}
+
+/* ── 11. HERO SCROLL ARROW PULSE ─────────────────── */
+@keyframes bounce-glow {
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 0 8px var(--neon-cyan);
+  }
+  50% {
+    transform: translateY(8px);
+    box-shadow: 0 0 22px var(--neon-cyan);
+  }
+}
+
+.class-down-arrow .down-arrow {
+  animation: bounce-glow 2s ease-in-out infinite !important;
+  border: 1px solid var(--neon-cyan) !important;
+  color: var(--neon-cyan) !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ── 12. CONTACT FORM INPUTS ─────────────────────── */
+input:focus,
+textarea:focus {
+  border: 1px solid var(--neon-cyan) !important;
+  box-shadow: 0 0 12px rgba(0, 245, 255, 0.3) !important;
+}
+
+.send-btn {
+  background: linear-gradient(
+    to right,
+    var(--neon-cyan),
+    var(--cosmic-purple)
+  ) !important;
+  font-family: "Orbitron", monospace !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* ── 13. FOOTER GLASS ─────────────────────────────── */
+footer {
+  background: rgba(0, 0, 8, 0.85) !important;
+  border-top: 1px solid var(--glass-border) !important;
+  backdrop-filter: blur(20px) !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── 14. SECTION BACKGROUNDS FOR READABILITY ─────── */
+.about-us .container,
+.about-education .container,
+.experience-section .container,
+.skills-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Subtle dark tint behind text sections for readability */
+.about-us::before,
+.about-education::before,
+.experience-section::before,
+.skills-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 8, 0.55);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── 15. HERO SECTION TRANSPARENT BG ─────────────── */
+.video-bg { opacity: 0.45 !important; }
+.hero::before { background: rgba(0,0,5,0.55) !important; }
+
+/* ── 16. EDUCATION SECTION — FULL REDESIGN ────────── */
+.about-education {
+  background: transparent !important;
+  position: relative;
+  z-index: 1;
+}
+
+.about-education .container {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+/* Override the default dark text color on .header-education */
+.about-education .header-education {
+  color: var(--starlight) !important;
+}
+
+.about-education .header-education .about-education-text p {
+  color: var(--cosmic-purple);
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: 'Orbitron', monospace;
+}
+
+.about-education .my-heading h2 {
+  font-family: 'Orbitron', monospace !important;
+  font-size: 3.8rem !important;
+  background: linear-gradient(to right, var(--neon-cyan), var(--starlight)) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.about-education .theme-line p {
+  color: rgba(232,244,255,0.5) !important;
+  font-size: 1.6rem;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Education card grid layout */
+.education-card-main {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 3rem !important;
+  margin-top: 5rem !important;
+  padding: 0 !important;
+  align-items: start;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Each grid cell wrapper fills properly */
+.about-education .education-cards {
+  display: block !important;
+  width: 100% !important;
+  color: var(--starlight) !important;
+}
+
+/* Edu card takes full cell width — overrides app.css 300px */
+.about-education .edu-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Placeholder project cards */
+.card-placeholder {
+  border: 2px dashed rgba(0,245,255,0.3) !important;
+  background: rgba(0,245,255,0.03) !important;
+  box-shadow: none !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+  min-height: 28rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.card-placeholder:hover {
+  border-color: rgba(0,245,255,0.7) !important;
+  box-shadow: 0 0 24px rgba(0,245,255,0.12) !important;
+}
+
+.placeholder-inner {
+  text-align: center;
+  padding: 2.4rem;
+}
+
+.placeholder-icon {
+  font-size: 4.4rem;
+  color: rgba(0,245,255,0.35);
+  margin-bottom: 1.2rem;
+  line-height: 1;
+}
+
+.placeholder-title {
+  font-family: 'Orbitron', monospace !important;
+  font-size: 1.8rem !important;
+  color: rgba(232,244,255,0.5) !important;
+  margin-bottom: 0.8rem !important;
+}
+
+.placeholder-hint {
+  font-size: 1.4rem;
+  color: rgba(232,244,255,0.3);
+  margin-bottom: 1.6rem;
+}
+
+.placeholder-tags {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 1.6rem;
+}
+
+/* Also fix section-project container z-index so cards show */
+.section-project {
+  position: relative !important;
+  z-index: 1 !important;
+}
+.section-project .contact-me { 
+  position: relative !important; 
+  z-index: 2 !important; 
+}
+.section-project .container {
+  position: relative !important; 
+  z-index: 2 !important; 
+}
+.grid-project {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+@media (max-width: 61em) {
+  .education-card-main {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Override the old white edu-card and apply space glass design */
+.about-education .edu-card {
+  background: rgba(6, 6, 22, 0.72) !important;
+  border: 1px solid rgba(0,245,255,0.22) !important;
+  border-top: 3px solid var(--neon-cyan) !important;
+  backdrop-filter: blur(18px) !important;
+  border-radius: 16px !important;
+  padding: 3rem 2.8rem !important;
+  box-shadow: 0 0 40px rgba(0,245,255,0.08), 0 16px 48px rgba(0,0,0,0.7) !important;
+  transition: transform 0.35s ease, box-shadow 0.35s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-education .edu-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--neon-cyan), transparent);
+  opacity: 0.6;
+}
+
+.about-education .edu-card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 0 60px rgba(0,245,255,0.22), 0 20px 52px rgba(0,0,0,0.8) !important;
+}
+
+.about-education .edu-card h3.institute-name {
+  font-family: 'Orbitron', monospace !important;
+  font-size: 1.9rem !important;
+  color: var(--neon-cyan) !important;
+  line-height: 1.4 !important;
+  margin-bottom: 1.2rem !important;
+}
+
+.about-education .edu-card .period {
+  font-size: 1.5rem !important;
+  color: var(--cosmic-purple) !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+  margin-bottom: 1.6rem !important;
+}
+
+.about-education .edu-card ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 0 1.6rem 0 !important;
+}
+
+.about-education .edu-card ul li {
+  font-size: 2rem !important;
+  color: var(--starlight) !important;
+  padding: 0.6rem 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.8rem !important;
+  font-family: 'Orbitron', monospace !important;
+  font-weight: 700 !important;
+}
+
+.about-education .edu-card ul li ion-icon {
+  color: var(--rocket-orange) !important;
+  font-size: 1.8rem !important;
+  flex-shrink: 0;
+}
+
+.about-education .edu-card .skills-learned {
+  font-size: 1.5rem !important;
+  color: rgba(232,244,255,0.65) !important;
+  line-height: 1.7 !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  margin-top: 1.2rem !important;
+  border-top: 1px solid rgba(0,245,255,0.1);
+  padding-top: 1.2rem;
+}
+
+/* The + card (third card) — span full width */
+.education-cards.card-full {
+  grid-column: 1 / -1 !important;
+}
+
+.about-education .education-card-3 {
+  background: rgba(6, 6, 22, 0.72) !important;
+  border: 1px dashed rgba(0,245,255,0.3) !important;
+  border-radius: 16px !important;
+  padding: 2.8rem !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 2.4rem !important;
+}
+
+.about-education .plus-logo {
+  font-size: 4rem !important;
+  padding: 1.2rem 1.5rem !important;
+  border-radius: 50% !important;
+  background: rgba(0,245,255,0.08) !important;
+  border: 2px solid var(--neon-cyan) !important;
+  box-shadow: 0 0 20px rgba(0,245,255,0.2) !important;
+  color: var(--neon-cyan) !important;
+  transform: none !important;
+}
+
+.about-education .text {
+  font-size: 2rem !important;
+  font-family: 'Orbitron', monospace !important;
+  color: rgba(232,244,255,0.7) !important;
+  margin-top: 0 !important;
+}
+
+/* ── 16b. EDUCATION — NEW CARD VARIANTS ───────────── */
+
+/* 3-column grid: X | XII | IIIT full-width */
+.edu-three-grid {
+  grid-template-columns: 1fr 1fr !important;
+}
+.edu-three-grid .card-full {
+  grid-column: 1 / -1 !important;
+}
+
+/* Pill badge at top of each card */
+.edu-badge {
+  display: inline-block;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.35rem 1.2rem;
+  border-radius: 40px;
+  margin-bottom: 1.4rem;
+  border: 1px solid;
+}
+
+.edu-card-x   .edu-badge { background: rgba(0,245,255,0.1);  border-color: var(--neon-cyan);     color: var(--neon-cyan);     }
+.edu-card-xii .edu-badge { background: rgba(123,47,255,0.12); border-color: var(--cosmic-purple); color: var(--cosmic-purple); }
+.edu-card-iiit .edu-badge { background: rgba(255,107,53,0.1); border-color: var(--rocket-orange); color: var(--rocket-orange); }
+
+/* Coloured top border per card */
+.edu-card-x   { border-top-color: var(--neon-cyan)     !important; }
+.edu-card-xii { border-top-color: var(--cosmic-purple) !important; }
+.edu-card-iiit { border-top-color: var(--rocket-orange) !important; }
+
+/* Stats row */
+.edu-stat-row {
+  display: flex;
+  gap: 2.4rem;
+  margin: 1.8rem 0;
+  flex-wrap: wrap;
+}
+
+.edu-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.edu-stat-num {
+  font-family: 'Orbitron', monospace;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.edu-card-x   .edu-stat-num { color: var(--neon-cyan);      text-shadow: 0 0 14px rgba(0,245,255,0.5); }
+.edu-card-xii .edu-stat-num { color: var(--cosmic-purple);  text-shadow: 0 0 14px rgba(123,47,255,0.5); }
+.edu-card-iiit .edu-stat-num { color: var(--rocket-orange); text-shadow: 0 0 14px rgba(255,107,53,0.5); }
+
+.edu-stat-label {
+  font-size: 1.2rem;
+  color: rgba(232,244,255,0.5);
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── 16c. ACHIEVEMENTS TIMELINE EXTRAS ────────────── */
+
+/* Icon + title row */
+.tl-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.tl-icon {
+  font-size: 2.2rem;
+  color: var(--neon-cyan);
+  flex-shrink: 0;
+}
+
+/* Highlighted (Reliance) card — golden glow */
+.tl-highlight {
+  border-color: rgba(255,200,50,0.4) !important;
+  box-shadow: 0 0 32px rgba(255,180,0,0.14), 0 8px 24px rgba(0,0,0,0.5) !important;
+  background: rgba(30,20,0,0.6) !important;
+}
+
+.tl-highlight:hover {
+  box-shadow: 0 0 52px rgba(255,180,0,0.28), 0 12px 32px rgba(0,0,0,0.7) !important;
+}
+
+.tl-highlight .tl-icon { color: #ffc832; }
+.tl-highlight .tl-title { color: #ffc832 !important; }
+
+/* Link inside timeline card */
+.tl-link {
+  display: inline-block;
+  margin-top: 1.2rem;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.3rem;
+  color: #ffc832;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,200,50,0.4);
+  transition: color 0.2s, border-color 0.2s;
+}
+.tl-link:hover { color: #fff; border-color: #fff; }
+
+/* ── 17. GLOBAL FONT SIZE BOOST ───────────────────── */
+
+/* Base font scale — bumps everything that inherits rem */
+html {
+  font-size: 80% !important; /* was 62.5% — lifts all rem values ~9% */
+}
+
+/* NAV */
+.main-nav-link:link,
+.main-nav-link:visited {
+  font-size: 2rem !important;
+}
+
+/* HERO */
+.zeroth-heading        { font-size: 2.8rem !important; }
+.primary-heading       { font-size: 7rem !important; }
+.secondary-heading     { font-size: 7rem !important; }
+.tertiary-heading      { font-size: 7rem !important; }
+.discription-heading   { font-size: 2.4rem !important; line-height: 3.6rem !important; }
+
+/* ABOUT section */
+.heading-1             { font-size: 3.4rem !important; }
+.short-discription,
+.my-past               { font-size: 1.8rem !important; line-height: 2.8rem !important; }
+.skills-heading        { font-size: 2.4rem !important; }
+.html, .css, .js,
+.nodejs, .expressjs,
+.mongodb, .mongoose,
+.angular, .react,
+.c, .java, .latex,
+.bootstrap, .git       { font-size: 1.5rem !important; padding: 0.6rem 2.2rem !important; }
+
+/* SECTION HEADINGS (my-heading h2, about-me-text, theme-line) */
+.my-heading            { font-size: 4.2rem !important; }
+.about-me-text,
+.about-education-text p { font-size: 1.5rem !important; }
+.theme-line p          { font-size: 1.8rem !important; }
+
+/* EDUCATION */
+.about-education .edu-card h3.institute-name { font-size: 2.1rem !important; }
+.about-education .edu-card .period           { font-size: 1.8rem !important; }
+.about-education .edu-card ul li             { font-size: 2.3rem !important; }
+.about-education .edu-card .skills-learned   { font-size: 1.7rem !important; }
+.about-education .text                       { font-size: 2.2rem !important; }
+
+/* SKILLS HUD */
+.section-label    { font-size: 1.4rem !important; }
+.section-title    { font-size: 4rem !important; }
+.section-subtitle { font-size: 1.9rem !important; }
+.skill-header     { font-size: 1.7rem !important; }
+.skill-pct        { font-size: 1.5rem !important; }
+
+/* TIMELINE */
+.tl-date  { font-size: 1.4rem !important; }
+.tl-title { font-size: 1.9rem !important; }
+.tl-org   { font-size: 1.6rem !important; }
+.tl-desc  { font-size: 1.7rem !important; }
+
+/* PROJECT CARDS */
+.card-title  { font-size: 2.2rem !important; }
+.card-desc   { font-size: 1.6rem !important; }
+.tag         { font-size: 1.4rem !important; }
+.code-btn,
+.live-btn    { font-size: 1.6rem !important; }
+
+/* CONTACT */
+.contact-heading     { font-size: 2.8rem !important; }
+.contact-discription { font-size: 1.8rem !important; }
+.sub-head            { font-size: 1.6rem !important; }
+.sub-info            { font-size: 1.9rem !important; }
+label                { font-size: 1.8rem !important; }
+input, textarea      { font-size: 1.6rem !important; }
+.send-btn            { font-size: 1.7rem !important; }
+
+/* FOOTER */
+.footer-heading { font-size: 2.8rem !important; }
+.footer-para    { font-size: 1.6rem !important; }
+.quick-links a  { font-size: 1.8rem !important; }
+.quick-links h3,
+.last-contact-details h3 { font-size: 2rem !important; }
+.last-contact-details p  { font-size: 1.8rem !important; }
+.copywrite p             { font-size: 1.6rem !important; }
+
+/* Mobile: keep hero readable, don't over-scale */
+@media (max-width: 60em) {
+  html               { font-size: 62.5% !important; }
+  .primary-heading   { font-size: 4.8rem !important; }
+  .secondary-heading { font-size: 4.8rem !important; }
+  .tertiary-heading  { font-size: 4.8rem !important; }
+  .section-title     { font-size: 3rem !important; }
+}
+
+@media (max-width: 38em) {
+  html               { font-size: 58% !important; }
+  .primary-heading   { font-size: 3.6rem !important; }
+  .secondary-heading { font-size: 3.6rem !important; }
+  .tertiary-heading  { font-size: 3.6rem !important; }
+}

@@ -1,0 +1,506 @@
+/* Below 1232px(smaller computer) */
+@media (max-width: 77em) {
+    .hero-content {
+        max-width: 120rem;
+        gap: 4rem;
+    }
+
+    .zeroth-heading {
+        font-size: 2rem;
+    }
+
+    .primary-heading {
+        font-size: 4.6rem;
+    }
+
+    .secondary-heading {
+        font-size: 4.6rem;
+    }
+
+    .tertiary-heading {
+        font-size: 4.6rem;
+    }
+
+    .discription-heading {
+        font-size: 1.5rem;
+    }
+}
+
+/* Below 1040px */
+@media (max-width: 65em) {
+    html {
+        font-size: 62.50%;
+    }
+
+    .grid-1--cols {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 7rem 0;
+    }
+
+    .my-heading {
+        font-size: 3rem;
+    }
+
+    .discription-myself {
+        font-size: 1.3rem;
+    }
+
+    .grid-1--cols-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-1--cols-1 {
+        /* row-gap: 2rem; */
+        column-gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Below 976px */
+@media (max-width: 61em) {
+    html {
+        font-size: 62.50%;
+    }
+
+    .my-heading h2 {
+        font-size: 4rem;
+    }
+
+    .education-card-main {
+        /* flex-direction: column; */
+        /* row-gap: 2rem; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem; /* spacing between cards */
+        padding: 0 4rem;
+    }
+
+    .education-cards {
+        flex: 1 1 45%; /* allows 2 cards per row */
+        min-width: 300px;
+        max-width: 500px;
+        background: white;
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        background: transparent;
+    }
+
+    .card-full {
+        /* flex: 0 0 100%; takes full row */
+        display: flex;
+        justify-content: center;
+    }
+
+    .grid-1--cols-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        width: 100%;
+        /* height: 100%; */
+        /* max-width: 97.6rem; */
+    }
+}
+
+/* Below 960 px  */
+
+@media (max-width: 60em) {
+
+    html {
+        font-size: 62.50%;
+    }
+
+    .grid-project {
+        column-gap: 0rem; 
+        row-gap: 0rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        margin-top: 6rem;
+        }
+
+    .zeroth-heading {
+        font-size: 1.5rem;
+    }
+
+    .primary-heading {
+        font-size: 4.2rem;
+    }
+
+    .secondary-heading {
+        font-size: 4.2rem;
+    }
+
+    .tertiary-heading {
+        font-size: 4.2rem;
+    }
+
+    .discription-heading {
+        font-size: 1.3rem;
+    }
+
+    .my-heading h2 {
+        font-size: 3.5rem;
+    }
+
+    .btn-mobile-nav {
+        display: block;
+    }
+
+    .header.sticky {
+        position: fixed;
+         background: rgba(0,0,0,0.8);
+    }
+
+    .main-nav {
+        background-color: rgba(10, 10, 10, 0.6);
+        backdrop-filter: blur(10px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        transform: translateX(100%);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease-in;
+
+        /* Hide the navigation */
+        /* Allow no transaction */
+        /* display: none; */
+
+        /* 1) Hide it visually */
+        opacity: 0;
+
+        /* 2) Make it unaccessible to mouse and keyboard */
+        pointer-events: none;           /*clever trick to make sure hidden elements don’t accidentally block interactions.*/
+
+        /* 3) Hide it from screen readers */
+        visibility: hidden;
+    }
+
+    .header {
+        padding: 0 2.4rem;
+    }
+
+    .nav-open .main-nav {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        transform: translateX(0);
+        /* background: rgba(0,0,0,0.8); */
+        backdrop-filter: blur(10px);
+    }
+
+    .main-nav-list {
+        color: white;
+    }
+
+    .sticky {
+        position: relative;
+        /* position: absolute; */
+    }
+
+    .main-nav-list {
+        flex-direction: column;
+        gap: 4.8rem;
+    }
+
+    .main-nav-link:link,
+    .main-nav-link:visited {
+        font-size: 3rem;
+        color: white;
+    }
+
+    .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+    }
+
+    .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+    }
+}
+
+@media (min-width: 60em) {
+    .main-nav-link {
+        position: relative;
+        /* text-decoration: none; */
+        /* color: #444; */
+        /* font-size: 1rem; */
+        /* padding-bottom: 5px; */
+        transition: color 0.3s ease;
+    }
+
+    .main-nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 2px;
+        background-color: #007bff; /* Customize your color */
+        transition: width 0.3s ease;
+    }
+
+    .main-nav-link.active {
+        color: #007bff;
+        font-weight: 600;
+    }
+
+    .main-nav-link.active::after {
+        width: 100%;
+    }
+}
+
+/* 894px */
+@media (max-width: 56em) {
+    .grid-1--cols-1 {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card1 {
+    justify-content: center; /* centers grid items horizontally */
+    align-items: center;
+    align-self: center;
+}
+
+    .section-footer {
+        display: flex;
+        flex-wrap: wrap;
+        color: white;
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .footer-item1 {
+        flex: 1 1 100%; /* Takes full width */
+    }
+
+    .footer-item2,
+    .footer-item3 {
+        flex: 1 1 45%; /* Adjust width of each half item */
+    }
+
+    .contact-form {
+    }
+    
+    .for-margin {
+        padding: 2 1rem;
+
+    }
+
+    .class-down-arrow {
+        display: none;
+    }
+
+    .hero-logo {
+    height: 3rem;
+    width: 3rem;
+}
+
+}
+
+/* Below 608px */
+
+@media (max-width: 38em) {
+
+    html {
+        font-size: 62.50%;
+    }
+
+    .zeroth-heading {
+        font-size: 1.5rem;
+    }
+
+    .primary-heading {
+        font-size: 3.2rem;
+    }
+
+    .secondary-heading {
+        font-size: 3.2rem;
+    }
+
+    .tertiary-heading {
+        font-size: 3.2rem;
+    }
+
+    .discription-heading {
+        font-size: 1.5rem;
+    }
+
+    .logo:link, .logo:visited {
+        height: 13rem;
+        width: 3rem;
+    }
+
+    .card3 {
+        align-self: flex-end;
+    }
+    
+
+    .my-heading h2 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .side-img-1 {
+        /* height: 10rem;
+        width: 10rem; */
+        transform: scale(0.8);
+    }
+
+    .myself {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .theme-line p {
+        padding: 0 2rem;
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .grid-1--cols-3 {
+        grid-template-columns: 1fr;
+        row-gap: 1rem;
+    }
+
+    
+    .grid-1--cols-1 {
+        padding: 0 2rem;
+    }
+
+    .second-last-div {
+        padding: 0 0.5rem;
+    }
+
+    .last-contact-details {
+        margin-top:1rem;
+    }
+
+    .about-us {
+        padding-top: 2rem;
+    }
+
+    .astronaut-img {
+        width: 30rem;
+        height: 30rem;
+    }
+
+    .hero-content {
+        transform: translateY(-4rem);
+    }
+    
+}
+
+/* 480px */
+@media (max-width: 30em) {
+    html {
+        font-size: 62.50%;
+    }
+
+    .zeroth-heading {
+        font-size: 1.5rem;
+    }
+
+    .primary-heading {
+        font-size: 2.7rem;
+    }
+
+    .secondary-heading {
+        font-size: 2.7rem;
+    }
+
+    .tertiary-heading {
+        font-size: 2.7rem;
+    }
+
+    .discription-heading {
+        font-size: 1.5rem;
+    }
+
+    .about-me {
+        line-height: 5rem;
+    }
+
+    .heading-1 {
+        font-size: 2.2rem;
+    }
+
+    .my-heading h2 {
+        font-size: 2.7rem;
+    }
+
+    .skills-heading {
+        font-size: 2.2rem;
+    }
+
+    .contact-heading {
+        font-size: 2.2rem;
+    }
+
+    .contact-discription {
+        font-size: 1.4rem;
+    }
+
+    .theme-line p {
+        font-size: 1.4rem;
+    }
+
+    .about-education-text {
+        margin-bottom: 0.5rem;
+    }
+
+    /* .class-down-arrow {
+        display: none;
+    } */
+
+    .card1 {
+        width: auto;
+    }
+}
+
+/* 416px */
+@media (max-width: 26em) {
+    html {
+        font-size: 62.50%;
+    }
+
+    .zeroth-heading {
+        font-size: 1.5rem;
+    }
+
+    .primary-heading {
+        font-size: 2.2rem;
+    }
+
+    .secondary-heading {
+        font-size: 2.2rem;
+    }
+
+    .tertiary-heading {
+        font-size: 2.2rem;
+    }
+
+    .discription-heading {
+        font-size: 1.1rem;
+    }
+
+    
+
+}
+
+@media (max-height: 37.5em) {
+    .about-us {
+        padding-top: 23rem;
+    }
+}
