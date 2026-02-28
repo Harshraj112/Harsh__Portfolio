@@ -58,61 +58,67 @@ document.addEventListener('DOMContentLoaded', usrScroll);
 // });
 // obs.observe(sectionHeroEl);
 
-const btnNav = document.querySelector(".btn-mobile-nav");
-const header = document.querySelector(".header");
+/* ═══════════════════════════════════════════════════════
+   HAMBURGER MENU — Toggle, close-on-link, close-on-outside
+   ═══════════════════════════════════════════════════════ */
+(function () {
+  const btnNav  = document.querySelector('.btn-mobile-nav');
+  const header  = document.querySelector('.header');
+  const mainNav = document.querySelector('.main-nav');
+  if (!btnNav || !header) return;
 
-const sticky1 = document.querySelector(".sticky");
+  // Toggle menu open / closed
+  btnNav.addEventListener('click', function (e) {
+    e.stopPropagation();
+    header.classList.toggle('nav-open');
+  });
 
-btnNav.addEventListener("click", function () {
-    document.sticky1.style.position = "relative";
-})
+  // Close menu when any nav link is clicked
+  const navLinks = header.querySelectorAll('.main-nav-link');
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      header.classList.remove('nav-open');
+    });
+  });
 
-btnNav.addEventListener("click", function () {
-    header.classList.toggle("nav-open");
-});
+  // Close menu when tapping outside the nav area
+  document.addEventListener('click', function (e) {
+    if (!header.classList.contains('nav-open')) return;
+    // If the tap was inside the nav or on the hamburger, ignore
+    if (mainNav && mainNav.contains(e.target)) return;
+    if (btnNav.contains(e.target)) return;
+    header.classList.remove('nav-open');
+  });
 
-// Smooth navigator
+  // Close on Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && header.classList.contains('nav-open')) {
+      header.classList.remove('nav-open');
+    }
+  });
+})();
 
-document.addEventListener("DOMContentLoaded", function () {
-  const allLinks = document.querySelectorAll("a:link");
-  const header = document.querySelector(".header"); // make sure this is defined
+/* ═══════════════════════════════════════════════════════
+   SMOOTH SCROLLING — Internal anchor links
+   ═══════════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', function () {
+  const allLinks = document.querySelectorAll('a[href^="#"]');
 
   allLinks.forEach(function (link) {
-    link.addEventListener("click", function (e) {
-      const href = link.getAttribute("href");
+    link.addEventListener('click', function (e) {
+      const href = link.getAttribute('href');
+      if (!href || href.length < 2) return; // skip bare "#"
 
-      // Handle only internal links
-      if (href && (href === "#" || href.startsWith("#"))) {
-        e.preventDefault();
+      const target = document.querySelector(href);
+      if (!target) return;
 
-        // Scroll to top
-        if (href === "#") {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        } else {
-          const sectionEl = document.querySelector(href);
-          if (sectionEl) {
-            try {
-              // Try smooth scroll using scrollIntoView
-              sectionEl.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            } catch (err) {
-              // Fallback for older browsers
-              const top = sectionEl.getBoundingClientRect().top + window.scrollY;
-              window.scrollTo({ top, behavior: "smooth" });
-            }
-          }
-        }
+      e.preventDefault();
 
-        // Close mobile nav if applicable
-        if (link.classList.contains("main-nav-link") && header) {
-          header.classList.toggle("nav-open");
-        }
-      }
+      // Account for fixed header height
+      const headerH = document.querySelector('.header')?.offsetHeight || 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerH;
+
+      window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 });
