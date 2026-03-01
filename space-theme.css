@@ -236,10 +236,14 @@ h3,
 
 /* Contact form glass */
 .contact-form {
-  background: var(--glass-bg) !important;
-  border: 1.5px solid rgba(0, 245, 255, 0.75) !important;
-  backdrop-filter: blur(18px) !important;
-  box-shadow: 0 0 18px rgba(0, 245, 255, 0.25), 0 0 40px rgba(0, 245, 255, 0.08) !important;
+  background: rgba(6, 6, 22, 0.65) !important;
+  border: 1px solid rgba(0, 245, 255, 0.12) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow:
+    0 0 30px rgba(0, 245, 255, 0.08),
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
 
   /* 3D tilt */
   transform-style: preserve-3d;
@@ -740,17 +744,19 @@ h3,
 input:focus,
 textarea:focus {
   border: 1px solid var(--neon-cyan) !important;
-  box-shadow: 0 0 12px rgba(0, 245, 255, 0.3) !important;
+  box-shadow: 0 0 16px rgba(0, 245, 255, 0.25), 0 0 4px rgba(0, 245, 255, 0.4) inset !important;
+  background: rgba(0, 0, 0, 0.55) !important;
 }
 
 .send-btn {
   background: linear-gradient(
-    to right,
+    135deg,
     var(--neon-cyan),
     var(--cosmic-purple)
   ) !important;
   font-family: "Orbitron", monospace !important;
-  letter-spacing: 0.05em !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
 }
 
 /* ── 13. FOOTER GLASS ─────────────────────────────── */
