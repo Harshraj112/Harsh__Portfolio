@@ -590,7 +590,7 @@
                     <div class="hud-underline"></div>
                 </div>
 
-                <div class="work-exp-grid reveal">
+                <div class="work-exp-grid reveal" id="work-exp-grid">
 
                     <!-- JNCASR - SRFP -->
                     <div class="work-exp-card">
@@ -673,8 +673,9 @@
                         </div>
                     </div>
 
-                    <!-- Web Development Lead - GDG -->
-                    <div class="work-exp-card">
+                    <!-- Web Development Lead - GDG (card 4 — hidden initially) -->
+                    <div class="card-reveal-wrap">
+                    <div class="work-exp-card section-card-inner">
                         <div class="work-exp-header">
                             <div class="work-exp-icon-wrap">
                                 <ion-icon name="people-outline" class="work-exp-icon"></ion-icon>
@@ -700,7 +701,16 @@
                             <span class="work-exp-tag">Mentorship</span>
                         </div>
                     </div>
+                    </div>
 
+                </div>
+
+                <!-- See More button for Work Experience -->
+                <div class="see-more-wrapper">
+                    <button class="see-more-btn" id="work-exp-toggle-btn" data-section="work-exp-grid" data-scroll-target="work-experience-section" aria-expanded="false">
+                        <span class="see-more-btn-text">See More</span>
+                        <ion-icon name="chevron-down-outline" class="see-more-chevron"></ion-icon>
+                    </button>
                 </div>
             </div>
         </section>
@@ -717,7 +727,7 @@
                     <div class="hud-underline"></div>
                 </div>
 
-                <div class="timeline reveal">
+                <div class="timeline reveal" id="achievements-timeline">
 
                     <!-- Scholarship -->
                     <div class="timeline-item">
@@ -759,8 +769,9 @@
                         </div>
                     </div>
 
-                    <!-- Certificate 3 -->
-                    <div class="timeline-item">
+                    <!-- Certificate 3 (card 4 — hidden initially) -->
+                    <div class="card-reveal-wrap">
+                    <div class="timeline-item section-card-inner">
                         <div class="tl-date">Dec 2024 · Certificate</div>
                         <div class="tl-card">
                             <div class="tl-icon-row">
@@ -771,7 +782,16 @@
                             <div class="tl-desc">Acquired foundational skills in building responsive web interfaces using HTML, Cascading Style Sheets (CSS), and JavaScript.</div>
                         </div>
                     </div>
+                    </div><!-- /.card-reveal-wrap -->
 
+                </div>
+
+                <!-- See More button for Achievements -->
+                <div class="see-more-wrapper">
+                    <button class="see-more-btn" id="achievements-toggle-btn" data-section="achievements-timeline" data-scroll-target="experience-section" aria-expanded="false">
+                        <span class="see-more-btn-text">See More</span>
+                        <ion-icon name="chevron-down-outline" class="see-more-chevron"></ion-icon>
+                    </button>
                 </div>
             </div>
         </section>
@@ -1147,6 +1167,100 @@
 }
 </style>
 
+<!-- ═══════════════════════════════════════════════
+     SEE MORE / SEE LESS — Styles
+═══════════════════════════════════════════════ -->
+<style>
+/* ── Smooth reveal wrapper ── */
+.card-reveal-wrap {
+    max-height: 0;
+    overflow: hidden;
+    /* margin-top animates from 0 → gap to match the grid gap */
+    margin-top: 0;
+    transition:
+        max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+        margin-top  0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-reveal-wrap.card-revealed {
+    max-height: 800px;   /* tall enough for any card */
+    margin-top: 4rem;    /* matches .work-exp-grid gap */
+}
+/* Timeline wraps: extend left so the ::before dot (left:-3rem) isn't clipped */
+.timeline .card-reveal-wrap {
+    margin-left: -3.5rem;   /* shift wrapper left to cover the dot area */
+    padding-left: 3.5rem;   /* push inner content back to original position */
+}
+.timeline .card-reveal-wrap.card-revealed {
+    margin-top: 4.5rem;  /* matches .timeline-item margin-bottom */
+}
+
+/* Inner card — fades + slides up once wrapper is expanding */
+.section-card-inner {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+        opacity  0.4s ease 0.1s,
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
+}
+.card-reveal-wrap.card-revealed .section-card-inner {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* See More wrapper */
+.see-more-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* See More / See Less button */
+.see-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2.2rem;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #e8f4ff;
+    background: rgba(0, 245, 255, 0.07);
+    border: 1.5px solid rgba(0, 245, 255, 0.4);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+.see-more-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 245, 255, 0.08), rgba(123, 47, 255, 0.08));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+}
+.see-more-btn:hover::before { opacity: 1; }
+.see-more-btn:hover {
+    border-color: rgba(0, 245, 255, 0.7);
+    box-shadow: 0 0 22px rgba(0, 245, 255, 0.22), 0 0 8px rgba(123, 47, 255, 0.15);
+    transform: translateY(-2px);
+}
+.see-more-btn:active { transform: translateY(0); }
+
+/* Chevron rotation animation */
+.see-more-chevron {
+    font-size: 1.1rem;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.see-more-btn[aria-expanded="true"] .see-more-chevron {
+    transform: rotate(180deg);
+}
+</style>
+
 <script>
 (function() {
     var form = document.getElementById('contact-form-el');
@@ -1199,6 +1313,59 @@
             if (e.target === overlay) closePopup();
         });
     }
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════
+     SEE MORE / SEE LESS — Logic
+═══════════════════════════════════════════════ -->
+<script>
+(function () {
+    function initSeeMoreToggle(btnId) {
+        var btn = document.getElementById(btnId);
+        if (!btn) return;
+
+        var sectionId    = btn.getAttribute('data-section');
+        var scrollTarget = btn.getAttribute('data-scroll-target');
+        var grid         = document.getElementById(sectionId);
+        var scrollEl     = document.getElementById(scrollTarget);
+        // Target the wrapper divs (not the inner cards)
+        var wrappers     = grid ? Array.from(grid.querySelectorAll('.card-reveal-wrap')) : [];
+        var textEl       = btn.querySelector('.see-more-btn-text');
+        var isExpanded   = false;
+
+        function revealCards() {
+            wrappers.forEach(function (wrap, i) {
+                // Stagger each wrapper slightly
+                setTimeout(function () {
+                    wrap.classList.add('card-revealed');
+                }, i * 60);
+            });
+        }
+
+        function hideCards() {
+            // Collapse all wrappers at once
+            wrappers.forEach(function (wrap) {
+                wrap.classList.remove('card-revealed');
+            });
+        }
+
+        btn.addEventListener('click', function () {
+            isExpanded = !isExpanded;
+            btn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+
+            if (isExpanded) {
+                textEl.textContent = 'See Less';
+                revealCards();
+            } else {
+                textEl.textContent = 'See More';
+                hideCards();
+            }
+        });
+    }
+
+    initSeeMoreToggle('work-exp-toggle-btn');
+    initSeeMoreToggle('achievements-toggle-btn');
 })();
 </script>
 
