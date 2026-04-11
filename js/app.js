@@ -102,9 +102,15 @@ document.addEventListener('DOMContentLoaded', usrScroll);
 
 
 
-  const sections = document.querySelectorAll("section[id], div[id]");
+  // Target the exact elements each nav link points to (mix of section and div IDs)
+  const NAV_IDS = ["home", "about-me", "education", "skills-section", "projects",
+                   "work-experience-section", "experience-section", "contact-form"];
+  const sections = NAV_IDS.map(id => document.getElementById(id)).filter(Boolean);
   const navLinks = document.querySelectorAll(".main-nav-link");
 
+  // rootMargin: fires when the section's top edge enters the top 30% of the viewport.
+  // threshold:0 means it triggers as soon as ANY pixel is visible — crucial for tall
+  // sections (Work Experience, Achievements) that are taller than the viewport.
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -119,7 +125,8 @@ document.addEventListener('DOMContentLoaded', usrScroll);
       });
     },
     {
-      threshold: 0.25, // Lowered so tall sections (Achievements etc.) still trigger active state
+      threshold: 0,
+      rootMargin: "0px 0px -70% 0px", // activate when top 30% of viewport contains section top
     }
   );
 
